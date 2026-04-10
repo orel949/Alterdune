@@ -16,7 +16,8 @@ class Item{
     string getType();
     int getValeur();
     int getQuantite();
-    void utiliser();
+    int utiliser();
+    void afficherItem();
 };
 
 #endif

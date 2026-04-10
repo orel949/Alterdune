@@ -20,6 +20,16 @@ int Item::getValeur(){
 int Item::getQuantite(){
     return this->quantite;
 }
-void Item::utiliser(){
-    quantite--;
+int Item::utiliser(){
+    if (quantite>=1){
+        quantite--;
+        return valeur;
+    }
+    return 0;
+}
+void Item::afficherItem(){
+    cout << "Nom : "<<nom<<" / ";
+    cout << "Type : "<<type<<" / ";
+    cout << "Valeur : "<<valeur<<" / ";
+    cout << "Quantité : "<<quantite<<endl;
 }

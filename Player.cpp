@@ -1,5 +1,6 @@
 #include "Player.h"
 #include "Item.h"
+#include "Inventaire.h"
 #include<vector>
 #include<string>
 #include<iostream>
@@ -31,6 +32,9 @@ int Player::getNbEpargnes(){
 int Player::getNbVictoires(){
     return this->nbVictoires;
 }
-vector<Item> Player::getInventaire(){
+Inventaire& Player::getInventaire(){
     return this->inventaire;
+}
+void Player::ajouterItem(Item item){
+    inventaire.ajouterItem(item);
 }

@@ -1,6 +1,7 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 #include "Item.h"
+#include "Inventaire.h"
 #include <vector>
 #include <string>
 using namespace std;
@@ -13,7 +14,7 @@ private:
     int nbTues;
     int nbEpargnes;
     int nbVictoires;
-    vector<Item> inventaire;
+    Inventaire inventaire;
 public:
     Player(string nom);
     string getNom();
@@ -22,7 +23,8 @@ public:
     int getNbTues();
     int getNbEpargnes();
     int getNbVictoires();
-    vector<Item> getInventaire();
+    Inventaire& getInventaire();
+    void ajouterItem(Item item);
 };
 
 #endif
