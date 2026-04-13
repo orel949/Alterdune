@@ -2,6 +2,7 @@
 #define MONSTER_H
 #include <string>
 #include <vector>
+#include <iostream>
 using namespace std;
 
 class Monster{
@@ -26,6 +27,7 @@ public:
     int getMercy();
     int getMercyMax();
     vector<string> getIdAct();
+    void setIdACT(vector<string> actions);
     virtual int getNbActions()=0;
     virtual ~Monster();
 };

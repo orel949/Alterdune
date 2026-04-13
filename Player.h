@@ -16,6 +16,7 @@ private:
     int nbVictoires;
     Inventaire inventaire;
 public:
+    Player();
     Player(string nom);
     string getNom();
     int getHp();

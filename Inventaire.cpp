@@ -1,9 +1,4 @@
 #include "Inventaire.h"
-#include "Item.h"
-#include<vector>
-#include<string>
-#include<iostream>
-using namespace std;
 
 Inventaire::Inventaire(){}
 

@@ -1,5 +1,4 @@
 #include "Item.h"
-#include<iostream>
 
 Item::Item(string nom, string type, int valeur, int quantite){
     this->nom=nom;

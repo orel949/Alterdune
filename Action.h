@@ -1,6 +1,7 @@
 #ifndef ACTION_H
 #define ACTION_H
 #include<string>
+#include<iostream>
 using namespace std;
 
 class Action{

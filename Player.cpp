@@ -1,11 +1,6 @@
 #include "Player.h"
-#include "Item.h"
-#include "Inventaire.h"
-#include<vector>
-#include<string>
-#include<iostream>
-using namespace std;
 
+Player::Player(){}
 Player::Player(string nom){
     this->nom=nom;
     this->hpMax=100;

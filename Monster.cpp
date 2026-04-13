@@ -1,8 +1,4 @@
 #include "Monster.h"
-#include<string>
-#include<iostream>
-#include <vector>
-using namespace std;
 
 Monster::Monster(string categorie, string nom, int hpMax, int atk,int def,int mercyMax){
     this->categorie=categorie;
@@ -41,5 +37,8 @@ int Monster::getMercyMax(){
 }
 vector<string> Monster::getIdAct(){
     return this->idACT;
+}
+void Monster::setIdACT(vector<string> actions){
+    this->idACT = actions;
 }
 Monster::~Monster(){}
