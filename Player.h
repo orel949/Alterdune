@@ -26,6 +26,9 @@ public:
     int getNbVictoires();
     Inventaire& getInventaire();
     void ajouterItem(Item item);
+    void ajouterVictoire();
+    void ajouterTue();
+    void ajouterEpargne();
 };
 
 #endif

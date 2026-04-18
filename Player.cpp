@@ -33,3 +33,12 @@ Inventaire& Player::getInventaire(){
 void Player::ajouterItem(Item item){
     inventaire.ajouterItem(item);
 }
+void Player::ajouterVictoire(){
+    nbVictoires++;
+}
+void Player::ajouterTue(){
+    nbTues++;
+}
+void Player::ajouterEpargne(){
+    nbEpargnes++;
+}
