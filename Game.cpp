@@ -106,6 +106,96 @@ void afficherStatJoueur(Player joueur){
     cout << "Nombre de victoires : "<<joueur.getNbVictoires()<<endl;
     cout<<endl;
 }
+void Game::ajouterAuBestiaire(Monster* monstre, int resultat)
+{
+    EntreeBestiaire entree;
+    entree.nom = monstre->getNom();
+    entree.categorie = monstre->getCategorie();
+    entree.hpMax = monstre->getHpMax();
+    entree.atk = monstre->getAtk();
+    entree.def = monstre->getDef();
+    entree.resultat = resultat;
+
+    bestiaire.push_back(entree);
+}
+void Game::afficherBestiaire()
+{
+    if(bestiaire.empty())
+    {
+        cout << "Le bestiaire est vide." << endl;
+        cout << endl;
+        return;
+    }
+
+    cout << "Bestiaire : " << endl;
+    for(int i = 0; i < bestiaire.size(); i++)
+    {
+        cout << "Monstre " << i+1 << " :" << endl;
+        cout << "Nom : " << bestiaire[i].nom << endl;
+        cout << "Categorie : " << bestiaire[i].categorie << endl;
+        cout << "HP max : " << bestiaire[i].hpMax << endl;
+        cout << "ATK : " << bestiaire[i].atk << endl;
+        cout << "DEF : " << bestiaire[i].def << endl;
+
+        if(bestiaire[i].resultat == 1)
+        {
+            cout << "Resultat : Tue" << endl;
+        }
+        else
+        {
+            cout << "Resultat : Epargne" << endl;
+        }
+
+        cout << endl;
+    }
+}
+
+
+void Game::lancerCombat()
+{
+    if(monstres.empty())
+    {
+        cout<<"Aucun monstre disponible !"<<endl;
+        cout<<endl;
+        return;
+    }
+    int index = rand() % monstres.size();
+    Monster* monstre = monstres[index];
+    cout << "Un monstre apparait !" << endl;
+    cout << "Nom : " << monstre->getNom() << endl;
+    cout << "Categorie : " << monstre->getCategorie() << endl;
+    cout << "Nombre d'actions ACT : " << monstre->getNbActions() << endl;
+    cout << endl;
+    int resulatCombat=0; //test 
+    //combat(joueur,monstre); voir en fct de ce que fait orel
+    //int resulatCombat = combat.Match();
+    if(resulatCombat==-1)
+    {
+        cout << "Le joueur a perdu le combat." << endl;
+        exit(0);
+    }
+    else if(resulatCombat==0)
+    {
+        joueur.ajouterEpargne();
+        joueur.ajouterVictoire();
+        ajouterAuBestiaire(monstre, 0);
+        cout << "Le monstre a ete epargne." << endl;
+    }
+    else if(resulatCombat==1)
+    {
+        joueur.ajouterTue();
+        joueur.ajouterVictoire();
+        ajouterAuBestiaire(monstre, 1);
+        cout << "Le joueur a gagné le combat." << endl;
+    }
+    cout << endl;
+    
+    return;
+    // if (joueur.getNbVictoires() >= 10) {
+    //     //afficher une fin de partie
+    // }
+}
+
 
 void Game::lancerJeu(){
 
@@ -131,10 +221,12 @@ void Game::lancerJeu(){
             case 1:
                 cout << "Ouverture du bestiaire..." << endl;
                 cout<<endl;
+                afficherBestiaire();
                 break;
             case 2:
                 cout << "Lancement du combat..." << endl;
                 cout<<endl;
+                lancerCombat();
                 break;
             case 3:
                 cout << "Affichage des statistiques..." << endl;

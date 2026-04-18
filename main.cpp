@@ -4,6 +4,7 @@
 using namespace std;
 
 int main(){
+    srand(time(0));
     string nom;
     cout << "Saisissez le nom de votre personnage" << endl;
     getline(cin, nom);

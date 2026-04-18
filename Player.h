@@ -28,6 +28,9 @@ public:
     void ajouterItem(Item item);
     void subirDegats(int degats);
     void soigner(int soin);
+    void ajouterVictoire();
+    void ajouterTue();
+    void ajouterEpargne();
 };
 
 #endif

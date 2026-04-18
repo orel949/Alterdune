@@ -49,3 +49,12 @@ void Player::soigner(int soin){
         hp+=soin;
     }
 }
+void Player::ajouterVictoire(){
+    nbVictoires++;
+}
+void Player::ajouterTue(){
+    nbTues++;
+}
+void Player::ajouterEpargne(){
+    nbEpargnes++;
+}
