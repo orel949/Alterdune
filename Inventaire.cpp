@@ -12,3 +12,19 @@ void Inventaire::afficherInventaire(){
         inventaire[i].afficherItem();
     }
 }
+
+int Inventaire::getTaille(){
+    return inventaire.size();
+}
+
+int Inventaire::utiliserItem(int index){
+    if (inventaire[index].getQuantite() <= 0){
+        cout << "Cet item est épuisé !" << endl;
+        return 0;
+    }
+    return inventaire[index].utiliser();
+}
+
+Item& Inventaire::getItem(int index){
+    return inventaire[index];
+}

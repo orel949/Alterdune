@@ -89,6 +89,7 @@ void Game::afficherMenu(){
     cout << "3. Statistiques du personnage" << endl;
     cout << "4. Items" << endl;
     cout << "5. Quitter" << endl;
+    cout<<endl;
     cout << "Choix : ";
 }
 
@@ -166,19 +167,18 @@ void Game::lancerCombat()
     cout << "Categorie : " << monstre->getCategorie() << endl;
     cout << "Nombre d'actions ACT : " << monstre->getNbActions() << endl;
     cout << endl;
-    int resulatCombat=0; //test 
-    //combat(joueur,monstre); voir en fct de ce que fait orel
-    //int resulatCombat = combat.Match();
-    if(resulatCombat==-1)
+    Combat combat(joueur, monstre);
+    int resulatCombat = combat.lancerCombat();
+    if(resulatCombat==3)
     {
         cout << "Le joueur a perdu le combat." << endl;
         exit(0);
     }
-    else if(resulatCombat==0)
+    else if(resulatCombat==2)
     {
         joueur.ajouterEpargne();
         joueur.ajouterVictoire();
-        ajouterAuBestiaire(monstre, 0);
+        ajouterAuBestiaire(monstre, 2);
         cout << "Le monstre a ete epargne." << endl;
     }
     else if(resulatCombat==1)
@@ -191,9 +191,18 @@ void Game::lancerCombat()
     cout << endl;
     
     return;
-    // if (joueur.getNbVictoires() >= 10) {
-    //     //afficher une fin de partie
-    // }
+    if (joueur.getNbVictoires() >= 10) {
+        if (joueur.getNbTues() == 0) {
+            cout << "FIN PACIFISTE !" << endl;
+        } 
+        else if (joueur.getNbEpargnes() == 0) {
+            cout << "FIN GENOCIDAIRE !" << endl;
+        } 
+        else {
+            cout << "FIN NEUTRE !" << endl;
+        }
+        exit(0);
+    }
 }
 
 

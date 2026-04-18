@@ -4,6 +4,7 @@
 #include <iostream>
 #include "Player.h"
 #include "Monster.h"
+#include "Combat.h"
 #include "NormalMonster.h"
 #include "MiniBossMonster.h"
 #include "BossMonster.h"
@@ -25,7 +26,7 @@ private:
         int hpMax;
         int atk;
         int def;
-        int resultat; // 1"Tue" ou 0"Epargne"
+        int resultat;
     };
     vector<EntreeBestiaire> bestiaire;
     
