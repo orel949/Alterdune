@@ -33,3 +33,19 @@ Inventaire& Player::getInventaire(){
 void Player::ajouterItem(Item item){
     inventaire.ajouterItem(item);
 }
+void Player::subirDegats(int degats){
+    if (hp-degats<0){
+        hp=0;
+    }
+    else{
+        hp-=degats;
+    }
+}
+void Player::soigner(int soin){
+    if (hp+soin>hpMax){
+        hp=hpMax;
+    }
+    else{
+        hp+=soin;
+    }
+}

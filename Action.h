@@ -2,6 +2,7 @@
 #define ACTION_H
 #include<string>
 #include<iostream>
+#include<vector>
 using namespace std;
 
 class Action{
@@ -16,5 +17,7 @@ public:
     string getTexte();
     int getImpact();
 };
+
+vector<Action> getCatalogue();
 
 #endif

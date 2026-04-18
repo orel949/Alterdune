@@ -26,6 +26,8 @@ public:
     int getNbVictoires();
     Inventaire& getInventaire();
     void ajouterItem(Item item);
+    void subirDegats(int degats);
+    void soigner(int soin);
 };
 
 #endif

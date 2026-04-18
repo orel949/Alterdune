@@ -42,3 +42,22 @@ void Monster::setIdACT(vector<string> actions){
     this->idACT = actions;
 }
 Monster::~Monster(){}
+void Monster::subirDegats(int degats){
+    if (hp-degats<0){
+        hp=0;
+    }
+    else{
+        hp-=degats;
+    }
+}
+void Monster::modifMercy(int val){
+    if (mercy+val<0){
+        mercy=0;
+    }
+    else if (mercy+val>mercyMax){
+        mercy=mercyMax;
+    }
+    else{
+        mercy+=val;
+    }
+}

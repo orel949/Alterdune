@@ -30,6 +30,8 @@ public:
     void setIdACT(vector<string> actions);
     virtual int getNbActions()=0;
     virtual ~Monster();
+    void subirDegats(int degats);
+    void modifMercy(int val);
 };
 
 #endif

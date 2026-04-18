@@ -122,7 +122,8 @@ void Game::lancerJeu(){
             choix = stoi(input);
         } 
         catch (...) {
-            cout << "Entrée invalide (pas un nombre). Réessaie !" << endl << endl;
+            cout << "Entrée invalide (pas un nombre). Réessaie !" << endl;
+            cout<<endl;
             continue;
         }
 
