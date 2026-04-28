@@ -109,45 +109,19 @@ void afficherStatJoueur(Player joueur){
 }
 void Game::ajouterAuBestiaire(Monster* monstre, int resultat)
 {
-    EntreeBestiaire entree;
-    entree.nom = monstre->getNom();
-    entree.categorie = monstre->getCategorie();
-    entree.hpMax = monstre->getHpMax();
-    entree.atk = monstre->getAtk();
-    entree.def = monstre->getDef();
-    entree.resultat = resultat;
-
-    bestiaire.push_back(entree);
+    bestiaire.push_back(Bestiaire(
+        monstre->getNom(),
+        monstre->getCategorie(),
+        monstre->getHpMax(),
+        monstre->getAtk(),
+        monstre->getDef(),
+        resultat
+    ));
 }
 void Game::afficherBestiaire()
 {
-    if(bestiaire.empty())
-    {
-        cout << "Le bestiaire est vide." << endl;
-        cout << endl;
-        return;
-    }
-
-    cout << "Bestiaire : " << endl;
-    for(int i = 0; i < bestiaire.size(); i++)
-    {
-        cout << "Monstre " << i+1 << " :" << endl;
-        cout << "Nom : " << bestiaire[i].nom << endl;
-        cout << "Categorie : " << bestiaire[i].categorie << endl;
-        cout << "HP max : " << bestiaire[i].hpMax << endl;
-        cout << "ATK : " << bestiaire[i].atk << endl;
-        cout << "DEF : " << bestiaire[i].def << endl;
-
-        if(bestiaire[i].resultat == 1)
-        {
-            cout << "Resultat : Tue" << endl;
-        }
-        else
-        {
-            cout << "Resultat : Epargne" << endl;
-        }
-
-        cout << endl;
+    for (int i=0;i<bestiaire.size();i++){
+        bestiaire[i].afficher();
     }
 }
 

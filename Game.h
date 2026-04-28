@@ -8,6 +8,7 @@
 #include "NormalMonster.h"
 #include "MiniBossMonster.h"
 #include "BossMonster.h"
+#include "Bestiaire.h"
 #include <vector>
 #include <fstream>
 #include <sstream>
@@ -19,16 +20,7 @@ class Game{
 private:
     Player joueur;
     vector<Monster*> monstres;
-    struct EntreeBestiaire
-    {
-        string nom;
-        string categorie;
-        int hpMax;
-        int atk;
-        int def;
-        int resultat;
-    };
-    vector<EntreeBestiaire> bestiaire;
+    vector<Bestiaire> bestiaire;
     
 public:
     Game(string nom);
@@ -38,8 +30,7 @@ public:
     void lancerJeu();
     void lancerCombat();
     void ajouterAuBestiaire(Monster* monstre, int resultat);
-    void afficherBestiaire();
-    
+    void afficherBestiaire();    
 };
 
 #endif
