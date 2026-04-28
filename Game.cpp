@@ -8,6 +8,7 @@ void Game::chargerItems(){
     ifstream fichier("item.csv");
     if(!fichier){
         cout << "Le fichier est introuvable ! ERREUR !"<<endl;
+        return;
     }
     string ligne;
     while(getline(fichier, ligne)){
@@ -95,6 +96,38 @@ void Game::afficherMenu(){
 
 void afficherInventaire(Player& joueur){
     joueur.getInventaire().afficherInventaire();
+    cout<<endl;
+    cout << "entrez le numero de l'item pour l'utiliser (utilisez 0 pour revenir au menu)" << endl;
+    cout<<endl;
+    int choixItem;
+    while(true){
+        cout << "Choix : ";
+        string input;
+        getline(cin, input);
+        try {
+            choixItem = stoi(input);
+            if (choixItem == 0) {
+                return;
+            }
+            if (choixItem >= 1 && choixItem <= joueur.getInventaire().getTaille()){
+                if (joueur.getInventaire().getItem(choixItem-1).getQuantite() <= 0){
+                    cout << "Cet item est épuisé, choisis un autre !" << endl;
+                }
+                else {
+                    break;
+                }
+            }
+            else {
+                cout << "Choix invalide !" << endl;
+            }
+        }
+        catch(...){
+            cout << "Entrée invalide !" << endl;
+        }
+    }
+    int soin = joueur.getInventaire().utiliserItem(choixItem-1);
+    joueur.soigner(soin);
+    cout << "Vous avez récupéré " << soin << " HP !" << endl;
 }
 
 void afficherStatJoueur(Player joueur){
@@ -164,7 +197,6 @@ void Game::lancerCombat()
     }
     cout << endl;
     
-    return;
     if (joueur.getNbVictoires() >= 10) {
         if (joueur.getNbTues() == 0) {
             cout << "FIN PACIFISTE !" << endl;

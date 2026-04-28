@@ -1,3 +1,10 @@
 Potion;HEAL;15;3
 Snack;HEAL;8;5
 SuperPotion;HEAL;30;1
+HyperPotion;HEAL;50;1
+ElixirNoir;HEAL;100;1
+SucrerieMagique;HEAL;5;10
+SoupeAuxChoux;HEAL;20;2
+PainMoisi;HEAL;3;8
+JusDeBagarre;HEAL;12;4
+MegaElixir;HEAL;75;1
