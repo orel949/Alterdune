@@ -32,6 +32,8 @@ public:
     virtual ~Monster();
     void subirDegats(int degats);
     void modifMercy(int val);
+    void resetHp();
+    void resetMercy();
 };
 
 #endif

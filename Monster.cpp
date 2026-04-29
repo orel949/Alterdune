@@ -61,3 +61,9 @@ void Monster::modifMercy(int val){
         mercy+=val;
     }
 }
+void Monster::resetHp(){
+    this->hp = this->hpMax;
+}
+void Monster::resetMercy(){
+    this->mercy=0;
+}

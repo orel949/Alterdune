@@ -169,6 +169,8 @@ void Game::lancerCombat()
     }
     int index = rand() % monstres.size();
     Monster* monstre = monstres[index];
+    monstre->resetHp();
+    monstre->resetMercy();
     cout << "Un monstre apparait !" << endl;
     cout << "Nom : " << monstre->getNom() << endl;
     cout << "Categorie : " << monstre->getCategorie() << endl;
